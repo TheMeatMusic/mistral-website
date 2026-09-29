@@ -1,0 +1,186 @@
+/* Mistral Électrique · site stylesheet
+   Palette sampled from the logo: ink, paper and volt are mistral_logo_full_light.png;
+   muted is the logo's middle band (221,215,204 @ 65 %) composited on ink.
+   Rules that are decisions, not taste:
+   - volt is for markers and large display words only. Small volt text fails AA on ink.
+   - no filled volt buttons. Buttons are paper on ink.
+   - one light band on the page (Propriété). Two adjacent dark grounds must be identical. */
+
+:root{
+  color-scheme:dark;
+  --ground:#0c0d14; --panel:#141621; --paper:#e8e4dc; --muted:#948f89; --rule:#272b3a; --volt:#1a6bff;
+  --paper-ink:#5c5c66; --paper-card:#f3f0e9; --paper-rule:#d2cdc2;
+  --sans:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  --max:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip;-webkit-text-size-adjust:100%}
+body{background:var(--ground);color:var(--paper);font-family:var(--sans);font-size:16px;line-height:1.55;padding-inline:16px}
+img{max-width:100%}
+a:focus-visible,button:focus-visible{outline:2px solid var(--volt);outline-offset:3px}
+.skip{position:absolute;left:16px;top:-100px;z-index:50;background:var(--paper);color:var(--ground);padding:10px 14px;font-weight:700}
+.skip:focus{top:12px}
+
+.page{max-width:var(--max);margin:0 auto}
+.lab{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-stretch:112%;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.lab::before{content:'';width:9px;height:9px;background:var(--volt);flex:none}
+/* chapter numerals under section labels */
+.lab[data-n]::after{content:attr(data-n);flex-basis:100%;font-size:120px;line-height:.8;font-weight:800;font-stretch:125%;letter-spacing:-.02em;color:var(--rule);margin-top:20px}
+
+/* ---------- buttons ---------- */
+.cta{display:inline-flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-stretch:112%;font-weight:700;
+  color:var(--ground);background:var(--paper);padding:16px 22px;text-decoration:none}
+.cta:hover{background:#fff}
+.pill{font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-stretch:112%;background:transparent;color:var(--paper);
+  border:1px solid var(--rule);border-radius:100px;padding:8px 14px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+.burger,.burger::before,.burger::after{display:block;width:14px;height:1.5px;background:currentColor}
+.burger{position:relative}
+.burger::before,.burger::after{content:'';position:absolute;left:0}
+.burger::before{top:-5px}
+.burger::after{top:5px}
+
+/* ---------- logo lockup (mark + wordmark are images, never typeset) ---------- */
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{display:block;height:24px;width:auto}
+.logo img.w{height:14px}
+
+/* ---------- nav in the fold ---------- */
+.nav{display:flex;justify-content:space-between;align-items:center;padding-top:28px;position:relative;z-index:2;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-stretch:112%}
+.nav .links{display:flex;gap:28px;align-items:center}
+.nav .links a:not(.pill){color:var(--paper);text-decoration:none}
+.nav .links a:not(.pill):hover{color:#fff}
+.nav .menu-btn{display:none}
+
+/* ---------- sticky bar: hidden going down, back on scroll-up once the nav has left ---------- */
+.bar{position:fixed;top:0;left:0;right:0;z-index:15;background:#0c0d14f5;border-bottom:1px solid var(--rule);padding-inline:16px;
+  transform:translateY(-101%);transition:transform .28s cubic-bezier(.16,1,.3,1)}
+.bar.on{transform:none}
+.bar-in{max-width:var(--max);margin:0 auto;height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-stretch:112%}
+.bar .logo img{height:20px}
+.bar .logo img.w{height:12px}
+.bar .links{display:flex;gap:24px;align-items:center}
+.bar .links a{color:var(--paper);text-decoration:none}
+.bar .links a:hover{color:#fff}
+.bar .links .go{background:var(--paper);color:var(--ground);padding:10px 14px;font-weight:700}
+.bar .links .go:hover{background:#fff;color:var(--ground)}
+.bar .menu-btn{display:none}
+
+/* ---------- phone menu ---------- */
+.sheet{position:fixed;inset:0;z-index:30;background:var(--ground);padding:28px 16px 32px;display:flex;flex-direction:column;overflow-y:auto}
+.sheet[hidden]{display:none}
+.sheet .top{display:flex;justify-content:space-between;align-items:center}
+.sheet ul{list-style:none;margin-top:56px;border-top:1px solid var(--rule)}
+.sheet li a{display:flex;align-items:baseline;gap:16px;padding:22px 0;border-bottom:1px solid var(--rule);color:var(--paper);text-decoration:none;
+  font-size:30px;line-height:1;font-weight:800;font-stretch:125%;text-transform:uppercase}
+.sheet li a span{font-family:var(--mono);font-size:12px;font-weight:400;color:var(--muted);font-stretch:100%}
+.sheet .cta{margin-top:auto;align-self:flex-start}
+
+/* ---------- the fold: nav + hero over a full-bleed plate ---------- */
+.fold{position:relative;isolation:isolate;min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+.plate,.intro{position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw}
+.plate{z-index:0;overflow:hidden;background:var(--ground)}
+/* the photo sits in the right two thirds so the worker lands in the open part of the scrim */
+.plate img,.intro-photo img{position:absolute;top:0;bottom:0;left:34%;width:66%;height:100%;object-fit:cover;object-position:64% center}
+/* text lives on the left: solid ink under the headline, opening to the right; a band under
+   the nav; a fade at the bottom into the page. Measured: h1 7.6:1, volt words 4.1:1. */
+.scrim{position:absolute;inset:0;background:
+  linear-gradient(90deg,#0c0d14 0%,#0c0d14 48%,#0c0d14b3 58%,#0c0d1440 70%,#0c0d1414 84%,#0c0d1440 100%),
+  linear-gradient(180deg,#0c0d14e6 0%,#0c0d14b3 9%,#0c0d1400 24%,#0c0d1400 58%,#0c0d14 100%)}
+.hero{flex:1;display:flex;flex-direction:column;justify-content:center;padding:64px 0 40px;position:relative;z-index:2}
+.hero .lift{margin:auto 0 96px}
+.hero h1{font-size:88px;line-height:.9;font-weight:800;font-stretch:125%;text-transform:uppercase;letter-spacing:-.01em;margin-top:28px;max-width:13ch;text-wrap:balance}
+.hero h1 em,.contact h2 em{font-style:normal;color:var(--volt)}
+.hero .sub{font-size:19px;color:var(--muted);max-width:56ch;margin-top:40px}
+.hero .cta{margin-top:44px}
+.ticks{margin-top:auto;border-top:1px solid var(--rule);display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-stretch:110%;color:var(--muted)}
+.ticks a{color:inherit;text-decoration:none;display:block}
+.ticks a::before{content:'';display:block;width:9px;height:9px;background:var(--volt);margin:-5px 0 14px}
+.ticks b{display:block;color:var(--paper);font-weight:700;margin-bottom:2px}
+.ticks a:hover b{color:#fff}
+
+/* ---------- logo intro (once per session; skipped under reduced motion) ---------- */
+.intro{z-index:5;pointer-events:none;overflow:hidden}
+.intro[hidden]{display:none}
+.intro-ground{position:absolute;inset:0;background:var(--ground)}
+.intro-photo{position:absolute;inset:0;opacity:0}
+.intro-mark{position:absolute;left:50%;top:50%;width:180px;height:auto;transform:translate(-50%,-50%)}
+.intro-mark polygon{transform-box:fill-box;transform-origin:left center}
+
+/* ---------- sections: a full-bleed hairline on top of each ---------- */
+section{position:relative;margin-top:120px;padding-top:48px;scroll-margin-top:72px}
+section::before{content:'';position:absolute;top:0;left:calc(50% - 50vw);width:100vw;height:1px;background:var(--rule)}
+.head{display:grid;grid-template-columns:320px 1fr;gap:24px;align-items:start}
+.head h2{font-size:44px;line-height:.95;font-weight:800;font-stretch:125%;text-transform:uppercase;letter-spacing:-.005em;text-wrap:balance}
+
+.markets{margin-top:56px;border-top:1px solid var(--rule);display:grid;grid-template-columns:repeat(3,1fr);list-style:none}
+.markets li{padding:36px 24px 0 0;border-right:1px solid var(--rule)}
+.markets li + li{padding-left:24px}
+.markets li:last-child{border-right:none}
+.markets h3{font-size:30px;line-height:1;font-weight:800;font-stretch:125%;text-transform:uppercase;overflow-wrap:anywhere}
+.markets p{color:var(--muted);margin-top:14px}
+
+.steps{margin-top:56px;list-style:none}
+.steps li{display:grid;grid-template-columns:320px 1fr;gap:24px;padding:32px 0;border-top:1px solid var(--rule)}
+.steps .n{display:flex;gap:18px;align-items:baseline}
+.steps .n span{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.steps .n h3{font-family:var(--mono);font-size:13px;font-weight:700;text-transform:uppercase;color:var(--muted)}
+.steps p{font-size:19px;max-width:52ch;font-weight:300}
+
+/* the one light band */
+#propriete{background:var(--paper);color:var(--ground);box-shadow:0 0 0 100vmax var(--paper);clip-path:inset(0 -100vmax);margin-top:152px;padding-block:104px}
+#propriete::before{display:none}
+#propriete .lab,#propriete .note{color:var(--paper-ink)}
+#propriete .lab[data-n]::after{color:var(--volt)}
+.own{margin-top:56px;display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start}
+.own .big{font-size:40px;line-height:1.1;font-weight:300;max-width:22ch;text-wrap:balance}
+.own .note{margin-top:24px;max-width:52ch}
+.card{background:var(--paper-card);border:1px solid var(--paper-rule);padding:24px}
+.card div{display:grid;grid-template-columns:1fr auto;gap:16px;padding:14px 0;border-top:1px solid var(--paper-rule);font-size:14px}
+.card div:first-child{border-top:none;padding-top:0}
+.card dt{color:var(--paper-ink)}
+.card dd{font-family:var(--mono);font-size:13px;text-align:right}
+
+.contact h2{font-size:88px;line-height:.9;font-weight:800;font-stretch:125%;text-transform:uppercase;max-width:18ch;text-wrap:balance;overflow-wrap:anywhere;margin-top:28px}
+.contact .row{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:center;margin-top:40px}
+.contact .mail{font-family:var(--mono);font-size:18px;color:var(--paper);user-select:all}
+
+footer{margin-top:128px;padding:28px 0 40px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
+  font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-stretch:110%;color:var(--muted)}
+footer a{color:inherit}
+
+/* ---------- tablet and phone ---------- */
+@media (max-width:900px){
+  .nav .links a:not(.pill){display:none}
+  .nav .menu-btn,.bar .menu-btn{display:inline-flex}
+  .bar .links > a{display:none}
+  .fold{min-height:0}
+  .hero{flex:none;justify-content:flex-start;padding:32px 0 40px}
+  .hero .lift{margin:0}
+  .plate img,.intro-photo img{left:0;width:100%}
+  .scrim{background:linear-gradient(180deg,#0c0d14b3 0%,#0c0d14eb 34%,#0c0d14f2 70%,#0c0d14 100%)}
+  .hero h1,.contact h2{font-size:52px}
+  .ticks{grid-template-columns:1fr 1fr;row-gap:28px;margin-top:56px}
+  section{margin-top:88px;padding-top:32px}
+  #propriete{margin-top:120px;padding-block:64px}
+  .lab[data-n]::after{font-size:72px}
+  .head,.steps li,.own{grid-template-columns:1fr;gap:16px}
+  .head h2{font-size:34px}
+  .markets,.steps,.own{margin-top:48px}
+  .markets{grid-template-columns:1fr}
+  .markets li,.markets li + li{padding:24px 0;border-right:none;border-bottom:1px solid var(--rule)}
+  .steps li{padding:28px 0}
+  .own .big{font-size:30px}
+}
+@media (max-width:480px){
+  .hero h1{font-size:38px}
+  .ticks{row-gap:20px}
+  .ticks a > span{display:none}
+  .ticks a::before{margin-bottom:10px}
+  .contact h2{font-size:28px}
+  .markets h3{font-size:26px}
+}
+@media (prefers-reduced-motion:reduce){.bar{transition:none}}

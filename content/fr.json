@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "title": "Mistral Électrique · Travaux électriques industriels, commerciaux et institutionnels",
+    "description": "Mistral Électrique réalise les travaux électriques de projets industriels, commerciaux et institutionnels au Québec. Entreprise à propriété autochtone."
+  },
+  "a11y": {
+    "skip": "Aller au contenu",
+    "home": "Mistral Électrique, accueil",
+    "menu_label": "Menu",
+    "lang_label": "English version"
+  },
+  "nav": {
+    "sectors": "Secteurs",
+    "method": "Méthode",
+    "ownership": "Propriété",
+    "contact": "Nous joindre",
+    "menu": "Menu",
+    "close": "Fermer",
+    "lang": "EN",
+    "bar_cta": "Soumissionner"
+  },
+  "hero": {
+    "tag": "Entreprise à propriété autochtone",
+    "title": "Du plan à la",
+    "title_em": "mise sous tension.",
+    "sub": "Mistral Électrique réalise les travaux électriques de projets industriels, commerciaux et institutionnels au Québec, pour les entrepreneurs généraux et en appel d'offres public.",
+    "cta": "Inviter à soumissionner",
+    "ticks": [
+      {
+        "title": "Soumission",
+        "text": "Ventilée, hypothèses écrites"
+      },
+      {
+        "title": "Planification",
+        "text": "Avant la mobilisation"
+      },
+      {
+        "title": "Exécution",
+        "text": "Un contremaître attitré"
+      },
+      {
+        "title": "Fermeture",
+        "text": "Dossier remis à la réception"
+      }
+    ]
+  },
+  "sectors": {
+    "label": "Secteurs",
+    "title": "Les bâtiments où l'on travaille",
+    "items": [
+      {
+        "name": "Industriel",
+        "text": "Usines, entrepôts, centres de distribution."
+      },
+      {
+        "name": "Commercial",
+        "text": "Bureaux, commerces, aménagements intérieurs."
+      },
+      {
+        "name": "Institutionnel",
+        "text": "Écoles, établissements de santé, édifices publics."
+      }
+    ]
+  },
+  "method": {
+    "label": "Méthode",
+    "title": "Quatre étapes, les mêmes sur chaque projet",
+    "steps": [
+      {
+        "name": "Soumission",
+        "text": "Ventilée par article, avec ses hypothèses et ses exclusions écrites. Remise avant la date de clôture."
+      },
+      {
+        "name": "Planification",
+        "text": "Échéancier, effectifs et approvisionnement arrêtés avant la mobilisation."
+      },
+      {
+        "name": "Exécution",
+        "text": "Un contremaître attitré du début à la fin. Un rapport chaque semaine. Chaque avis de changement chiffré avant d'être exécuté."
+      },
+      {
+        "name": "Fermeture",
+        "text": "Essais, plans tels que construits et manuels remis à la réception des travaux."
+      }
+    ]
+  },
+  "ownership": {
+    "label": "Propriété",
+    "title": "Propriété autochtone",
+    "statement": "Mistral Électrique est une entreprise à propriété autochtone.",
+    "note": "La documentation exigée par les clauses de contenu autochtone de vos appels d'offres est disponible sur demande.",
+    "directory": "Répertoire des entreprises autochtones",
+    "directory_status": "Inscrite",
+    "neq": "NEQ"
+  },
+  "contact": {
+    "label": "Nous joindre",
+    "title": "Invitez-nous",
+    "title_2": "à",
+    "title_em": "soumissionner.",
+    "cta": "Envoyer les documents"
+  },
+  "footer": {
+    "legal": "Mistral Électrique est une dénomination de Services Électriques Mistral inc. · Montréal"
+  }
+}

@@ -1,0 +1,166 @@
+<!doctype html>
+{#- One template, rendered once per language by build.py.
+    t = content/<lang>.json   s = content/site.json   root = "" or "../"
+    Copy lives in content/, never here. #}
+<html lang="{{ lang }}-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ t.meta.title }}</title>
+<meta name="description" content="{{ t.meta.description }}">
+<link rel="canonical" href="{{ url }}">
+<link rel="alternate" hreflang="fr-CA" href="{{ url_fr }}">
+<link rel="alternate" hreflang="en-CA" href="{{ url_en }}">
+<link rel="alternate" hreflang="x-default" href="{{ url_fr }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ s['trade_name_' ~ lang] }}">
+<meta property="og:title" content="{{ t.meta.title }}">
+<meta property="og:description" content="{{ t.meta.description }}">
+<meta property="og:url" content="{{ url }}">
+<meta property="og:image" content="https://{{ s.domain }}/assets/img/og.jpg">
+<meta property="og:locale" content="{{ lang }}_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0c0d14">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ root }}assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="{{ root }}assets/img/apple-touch-icon.png">
+<link rel="preload" href="{{ root }}assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="{{ root }}assets/img/hero-1920.webp" imagesrcset="{{ hero_srcset }}" imagesizes="(max-width:900px) 100vw, 66vw">
+<link rel="stylesheet" href="{{ root }}assets/{{ css }}">
+<script type="application/ld+json">{{ ld_json }}</script>
+</head>
+<body>
+<a class="skip" href="#main">{{ t.a11y.skip }}</a>
+
+{%- macro logo(alt="") %}<img src="{{ root }}assets/img/mark.png" alt="" width="26" height="24"><img class="w" src="{{ root }}assets/img/wordmark.png" alt="{{ alt }}" width="110" height="14">{% endmacro %}
+
+<header class="bar" id="bar">
+  <div class="bar-in">
+    <a class="logo" href="#top" aria-label="{{ t.a11y.home }}">{{ logo() }}</a>
+    <nav class="links" aria-label="{{ t.a11y.menu_label }}">
+      <a href="#secteurs">{{ t.nav.sectors }}</a>
+      <a href="#methode">{{ t.nav.method }}</a>
+      <a href="#propriete">{{ t.nav.ownership }}</a>
+      <a class="go" href="#contact">{{ t.nav.bar_cta }}</a>
+      <button class="pill menu-btn" type="button" data-menu aria-controls="sheet" aria-expanded="false"><i class="burger"></i>{{ t.nav.menu }}</button>
+    </nav>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="{{ t.a11y.menu_label }}">
+  <div class="top"><span class="logo">{{ logo(s['trade_name_' ~ lang]) }}</span><button class="pill" type="button" id="close">{{ t.nav.close }}</button></div>
+  <ul>
+    <li><a href="#secteurs"><span>01</span>{{ t.nav.sectors }}</a></li>
+    <li><a href="#methode"><span>02</span>{{ t.nav.method }}</a></li>
+    <li><a href="#propriete"><span>03</span>{{ t.nav.ownership }}</a></li>
+    <li><a href="#contact"><span>04</span>{{ t.nav.contact }}</a></li>
+  </ul>
+  <a class="cta" href="#contact">{{ t.hero.cta }} →</a>
+</div>
+
+<div class="page" id="top">
+  <div class="fold">
+    <div class="plate" aria-hidden="true">
+      <img src="{{ root }}assets/img/hero-1920.webp" srcset="{{ hero_srcset }}" sizes="(max-width:900px) 100vw, 66vw" alt="" fetchpriority="high">
+      <div class="scrim"></div>
+    </div>
+    <div class="intro" id="intro" aria-hidden="true" hidden>
+      <div class="intro-ground"></div>
+      <div class="intro-photo" id="introPhoto"><img src="{{ root }}assets/img/hero-1920.webp" srcset="{{ hero_srcset }}" sizes="(max-width:900px) 100vw, 66vw" alt=""><div class="scrim"></div></div>
+      <svg class="intro-mark" id="introMark" viewBox="0 0 256 240">
+        <polygon points="0,63 185,0 256,0 256,28 70,92 0,92" fill="#1a6bff"/>
+        <polygon points="0,134 185,70 256,70 256,105 70,169 0,169" fill="#dddacc" fill-opacity=".65"/>
+        <polygon points="0,205 185,141 256,141 256,175 70,239 0,239" fill="#d8d8c7" fill-opacity=".22"/>
+      </svg>
+    </div>
+
+    <div class="nav">
+      <a class="logo" href="{{ root }}{{ '' if lang == 'fr' else 'en/' }}" aria-label="{{ t.a11y.home }}">{{ logo() }}</a>
+      <nav class="links" aria-label="{{ t.a11y.menu_label }}">
+        <a href="#secteurs">{{ t.nav.sectors }}</a>
+        <a href="#methode">{{ t.nav.method }}</a>
+        <a href="#propriete">{{ t.nav.ownership }}</a>
+        <a href="#contact">{{ t.nav.contact }}</a>
+        <a class="pill" href="{{ alt_href }}" hreflang="{{ alt_lang }}" lang="{{ alt_lang }}" aria-label="{{ t.a11y.lang_label }}">{{ t.nav.lang }}</a>
+        <button class="pill menu-btn" type="button" data-menu aria-controls="sheet" aria-expanded="false"><i class="burger"></i>{{ t.nav.menu }}</button>
+      </nav>
+    </div>
+
+    <header class="hero">
+      <div class="lift">
+        <p class="lab">{{ t.hero.tag }}</p>
+        <h1>{{ t.hero.title }} <em>{{ t.hero.title_em }}</em></h1>
+        <p class="sub">{{ t.hero.sub }}</p>
+        <a class="cta" href="#contact">{{ t.hero.cta }} →</a>
+      </div>
+      <div class="ticks">
+        {%- for tick in t.hero.ticks %}
+        <a href="#methode"><b>{{ tick.title }}</b><span>{{ tick.text }}</span></a>
+        {%- endfor %}
+      </div>
+    </header>
+  </div>
+
+  <main id="main">
+    <section id="secteurs">
+      <div class="head">
+        <p class="lab" data-n="01">{{ t.sectors.label }}</p>
+        <h2>{{ t.sectors.title }}</h2>
+      </div>
+      <ul class="markets">
+        {%- for m in t.sectors['items'] %}
+        <li><h3>{{ m.name }}</h3><p>{{ m.text }}</p></li>
+        {%- endfor %}
+      </ul>
+    </section>
+
+    <section id="methode">
+      <div class="head">
+        <p class="lab" data-n="02">{{ t.method.label }}</p>
+        <h2>{{ t.method.title }}</h2>
+      </div>
+      <ol class="steps">
+        {%- for step in t.method.steps %}
+        <li><div class="n"><span>{{ '%02d' % loop.index }}</span><h3>{{ step.name }}</h3></div><p>{{ step.text }}</p></li>
+        {%- endfor %}
+      </ol>
+    </section>
+
+    <section id="propriete">
+      <div class="head">
+        <p class="lab" data-n="03">{{ t.ownership.label }}</p>
+        <h2>{{ t.ownership.title }}</h2>
+      </div>
+      <div class="own">
+        <div>
+          <p class="big">{{ t.ownership.statement }}</p>
+          <p class="note">{{ t.ownership.note }}</p>
+        </div>
+        <dl class="card">
+          <div><dt>{{ t.ownership.directory }}</dt><dd>{{ t.ownership.directory_status }}</dd></div>
+          <div><dt>{{ t.ownership.neq }}</dt><dd>{{ s.neq }}</dd></div>
+          {%- if s.rbq %}
+          <div><dt>RBQ</dt><dd>{{ s.rbq }}</dd></div>
+          {%- endif %}
+        </dl>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <p class="lab" data-n="04">{{ t.contact.label }}</p>
+      <h2>{{ t.contact.title }}<br>{{ t.contact.title_2 }} <em>{{ t.contact.title_em }}</em></h2>
+      <div class="row">
+        <a class="cta" href="mailto:{{ s.email }}">{{ t.contact.cta }} →</a>
+        <span class="mail">{{ s.email }}</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>{{ t.footer.legal }}</span>
+    <span>NEQ {{ s.neq }}{% if s.rbq %} · RBQ {{ s.rbq }}{% endif %} · <a href="mailto:{{ s.email }}">{{ s.email }}</a></span>
+  </footer>
+</div>
+
+<script src="{{ root }}assets/{{ js }}" defer></script>
+</body>
+</html>

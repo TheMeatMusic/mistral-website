@@ -1,0 +1,11 @@
+{
+  "_help": "Facts shared by both languages. check.py only lets numbers into the copy if they appear here.",
+  "domain": "mistralelectric.com",
+  "email": "info@mistralelectric.com",
+  "neq": "1180167588",
+  "rbq": "",
+  "legal_name_fr": "Services Électriques Mistral inc.",
+  "legal_name_en": "Mistral Electrical Services Inc.",
+  "trade_name_fr": "Mistral Électrique",
+  "trade_name_en": "Mistral Electric"
+}

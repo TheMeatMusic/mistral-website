@@ -1,0 +1,11 @@
+# built output: made by build.py locally and by the publish pipeline, never committed
+dist/
+__pycache__/
+
+# local history of earlier builds and working files, kept on disk only
+_archive/
+
+# secrets
+.env
+
+.DS_Store

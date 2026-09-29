@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "title": "Mistral Electric · Industrial, commercial and institutional electrical work",
+    "description": "Mistral Electric delivers the electrical work on industrial, commercial and institutional projects across Quebec. An Indigenous-owned company."
+  },
+  "a11y": {
+    "skip": "Skip to content",
+    "home": "Mistral Electric, home",
+    "menu_label": "Menu",
+    "lang_label": "Version française"
+  },
+  "nav": {
+    "sectors": "Markets",
+    "method": "Method",
+    "ownership": "Ownership",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close",
+    "lang": "FR",
+    "bar_cta": "Invite to bid"
+  },
+  "hero": {
+    "tag": "Indigenous-owned company",
+    "title": "From plans to",
+    "title_em": "power.",
+    "sub": "Mistral Electric delivers the electrical work on industrial, commercial and institutional projects across Quebec, for general contractors and through public tenders.",
+    "cta": "Invite us to bid",
+    "ticks": [
+      {
+        "title": "Bid",
+        "text": "Itemized, assumptions in writing"
+      },
+      {
+        "title": "Planning",
+        "text": "Before mobilization"
+      },
+      {
+        "title": "Execution",
+        "text": "One dedicated foreman"
+      },
+      {
+        "title": "Closeout",
+        "text": "Handed over at acceptance"
+      }
+    ]
+  },
+  "sectors": {
+    "label": "Markets",
+    "title": "The buildings we work in",
+    "items": [
+      {
+        "name": "Industrial",
+        "text": "Plants, warehouses, distribution centres."
+      },
+      {
+        "name": "Commercial",
+        "text": "Offices, retail, interior fit-outs."
+      },
+      {
+        "name": "Institutional",
+        "text": "Schools, healthcare facilities, public buildings."
+      }
+    ]
+  },
+  "method": {
+    "label": "Method",
+    "title": "Four stages, the same on every project",
+    "steps": [
+      {
+        "name": "Bid",
+        "text": "Itemized, with its assumptions and exclusions in writing. Delivered before the closing date."
+      },
+      {
+        "name": "Planning",
+        "text": "Schedule, crew and procurement settled before mobilization."
+      },
+      {
+        "name": "Execution",
+        "text": "One dedicated foreman from start to finish. A report every week. Every change order priced before it is carried out."
+      },
+      {
+        "name": "Closeout",
+        "text": "Test reports, as-built drawings and manuals handed over at acceptance."
+      }
+    ]
+  },
+  "ownership": {
+    "label": "Ownership",
+    "title": "Indigenous ownership",
+    "statement": "Mistral Electric is an Indigenous-owned company.",
+    "note": "The documentation required by the Indigenous content clauses in your tenders is available on request.",
+    "directory": "Indigenous Business Directory",
+    "directory_status": "Registered",
+    "neq": "NEQ"
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Invite us",
+    "title_2": "to",
+    "title_em": "bid.",
+    "cta": "Send the documents"
+  },
+  "footer": {
+    "legal": "Mistral Electric is a trade name of Mistral Electrical Services Inc. · Montreal"
+  }
+}
