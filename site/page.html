@@ -26,7 +26,7 @@
 <link rel="preload" href="{{ root }}assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="{{ root }}assets/img/hero-1920.webp" imagesrcset="{{ hero_srcset }}" imagesizes="(max-width:900px) 100vw, 66vw">
 <link rel="stylesheet" href="{{ root }}assets/{{ css }}">
-<script type="application/ld+json">{{ ld_json }}</script>
+<script type="application/ld+json">{{ ld_json|safe }}</script>
 </head>
 <body>
 <a class="skip" href="#main">{{ t.a11y.skip }}</a>
@@ -151,13 +151,14 @@
       <div class="row">
         <a class="cta" href="mailto:{{ s.email }}">{{ t.contact.cta }} →</a>
         <span class="mail">{{ s.email }}</span>
+        <a class="mail" href="tel:{{ s.phone_tel }}">{{ s.phone }}</a>
       </div>
     </section>
   </main>
 
   <footer>
     <span>{{ t.footer.legal }}</span>
-    <span>NEQ {{ s.neq }}{% if s.rbq %} · RBQ {{ s.rbq }}{% endif %} · <a href="mailto:{{ s.email }}">{{ s.email }}</a></span>
+    <span>NEQ {{ s.neq }}{% if s.rbq %} · RBQ {{ s.rbq }}{% endif %} · <a href="mailto:{{ s.email }}">{{ s.email }}</a> · <a href="tel:{{ s.phone_tel }}">{{ s.phone }}</a></span>
   </footer>
 </div>
 

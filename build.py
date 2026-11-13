@@ -65,7 +65,7 @@ def main():
         ld = {
             "@context": "https://schema.org", "@type": "Electrician",
             "name": site[f"trade_name_{lang}"], "legalName": site["legal_name_fr"],
-            "url": urls[lang], "email": site["email"], "logo": base + "assets/img/apple-touch-icon.png",
+            "url": urls[lang], "email": site["email"], "telephone": site["phone_tel"], "logo": base + "assets/img/apple-touch-icon.png",
             "image": base + "assets/img/og.jpg",
             "address": {"@type": "PostalAddress", "addressLocality": "Montréal", "addressRegion": "QC", "addressCountry": "CA"},
             "areaServed": "Québec",

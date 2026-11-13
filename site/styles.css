@@ -146,7 +146,7 @@ section::before{content:'';position:absolute;top:0;left:calc(50% - 50vw);width:1
 
 .contact h2{font-size:88px;line-height:.9;font-weight:800;font-stretch:125%;text-transform:uppercase;max-width:18ch;text-wrap:balance;overflow-wrap:anywhere;margin-top:28px}
 .contact .row{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:center;margin-top:40px}
-.contact .mail{font-family:var(--mono);font-size:18px;color:var(--paper);user-select:all}
+.contact .mail{font-family:var(--mono);font-size:18px;color:var(--paper);user-select:all;text-decoration:none}
 
 footer{margin-top:128px;padding:28px 0 40px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-stretch:110%;color:var(--muted)}
